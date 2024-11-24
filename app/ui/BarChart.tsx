@@ -1,13 +1,13 @@
 import { SEGMENT_MIN_HEIGHT } from '../utlis/constants'
 import { Data } from '../utlis/calculateHeightsAndSum'
 
-type TestResultColumnProps = {
+type BarChartProps = {
   data: Record<string, number>
   heights: number
   instance: string
 }
 
-export const TestResultColumn = ({ data, heights, instance }: TestResultColumnProps) => {
+export const BarChart = ({ data, heights, instance }: BarChartProps) => {
   const total = Object.values(data).reduce((acc, value) => acc + value, 0)
 
   return (

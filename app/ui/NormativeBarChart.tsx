@@ -1,9 +1,9 @@
-type NormativeColumnProps = {
+type NormativeBarChartProps = {
   heights: number
   normative: number
 }
 
-export const NormativeColumn = ({ heights, normative }: NormativeColumnProps) => {
+export const NormativeBarChart = ({ heights, normative }: NormativeBarChartProps) => {
   return (
     <div className="flex flex-col items-center">
       <div

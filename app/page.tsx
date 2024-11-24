@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-import { NormativeColumn } from './ui/NormativeColumn'
-import { TestResultColumn } from './ui/TestResultColumn'
+import { NormativeBarChart } from './ui/NormativeBarChart'
+import { BarChart } from './ui/BarChart'
 import { ThreeDots } from './icons/ThreeDots'
 import { Legend } from './ui/Legend'
 import { Label } from './ui/Label'
@@ -45,21 +45,13 @@ export default function Page() {
               <Label result={-((sums?.testSum ?? 0) - (sums?.prodSum ?? 0))} />
             </div>
             <div className="flex space-x-4 mt-[50px] items-end relative sm:gap-[45px] gap-[25px]">
-              <TestResultColumn heights={heights?.devHeight ?? 0} data={data.dev} instance="dev" />
+              <BarChart heights={heights?.devHeight ?? 0} data={data.dev} instance="dev" />
 
-              <TestResultColumn
-                heights={heights?.testHeight ?? 0}
-                data={data.test}
-                instance="test"
-              />
+              <BarChart heights={heights?.testHeight ?? 0} data={data.test} instance="test" />
 
-              <TestResultColumn
-                heights={heights?.prodHeight ?? 0}
-                data={data.prod}
-                instance="prod"
-              />
+              <BarChart heights={heights?.prodHeight ?? 0} data={data.prod} instance="prod" />
 
-              <NormativeColumn heights={heights?.normativeHeight ?? 0} normative={data.norm} />
+              <NormativeBarChart heights={heights?.normativeHeight ?? 0} normative={data.norm} />
             </div>
           </div>
         ) : (
