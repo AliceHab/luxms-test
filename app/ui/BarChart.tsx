@@ -1,5 +1,4 @@
 import { SEGMENT_MIN_HEIGHT } from '../utlis/constants'
-import { Data } from '../utlis/calculateHeightsAndSum'
 
 type BarChartProps = {
   data: Record<string, number>

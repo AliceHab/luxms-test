@@ -11,6 +11,7 @@ export type Heights = {
   testHeight: number
   prodHeight: number
   normativeHeight: number
+  maxValue: number
 }
 
 export type Data = {
@@ -35,7 +36,6 @@ export function calculateHeights(
   const normative = data.norm
 
   if (mode === 'sums') {
-    // Возвращаем суммы
     return {
       devSum,
       testSum,
@@ -68,6 +68,7 @@ export function calculateHeights(
       testHeight,
       prodHeight,
       normativeHeight,
+      maxValue,
     }
   }
   return null
