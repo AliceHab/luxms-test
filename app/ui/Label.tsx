@@ -45,7 +45,7 @@ export const Label = ({ result, left }: LabelProps) => {
 
   return (
     <div
-      className={`flex absolute justify-center items-center py-[1px] min-w-12 px-2 rounded-[16px] text-white font-bold text-[14px] sm:last:translate-x-0 last:-translate-x-8 transition-transform 
+      className={`flex absolute justify-center items-center py-[1px] min-w-12 px-2 rounded-[16px] text-white font-bold sm:text-[14px] text-[10px] sm:last:translate-x-0 last:-translate-x-8 transition-transform 
       ${result > 0 ? 'bg-luxms-green' : result < 0 ? 'bg-luxms-orange' : 'bg-luxms-gray'}`}
       style={{ left: `${adjustedLeft}px` }}
     >

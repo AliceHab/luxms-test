@@ -52,6 +52,7 @@ export function calculateHeights(
         testHeight: INSTANCE_MIN_HEIGHT,
         prodHeight: INSTANCE_MIN_HEIGHT,
         normativeHeight: INSTANCE_MIN_HEIGHT,
+        maxValue: 0,
       }
     }
 

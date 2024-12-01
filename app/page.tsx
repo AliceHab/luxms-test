@@ -36,10 +36,10 @@ export default function Page() {
   const sums = useMemo(() => calculateHeights(data, 'sums'), [data])
 
   // Рассчет вершины столбца
-  const calculateApex = (total: number) => {
+  const calculateApex = (total: number, maxValue: number) => {
     const apex =
-      heights?.maxValue > 0 && !isNaN(total)
-        ? Math.round(INSTANCE_MAX_HEIGHT - (total / heights.maxValue) * INSTANCE_MAX_HEIGHT)
+      maxValue > 0 && !isNaN(total)
+        ? Math.round(INSTANCE_MAX_HEIGHT - (total / maxValue) * INSTANCE_MAX_HEIGHT)
         : 0
 
     return apex === INSTANCE_MAX_HEIGHT ? 210 : apex // Корректировка, если вернулась минимальная высота
@@ -48,9 +48,9 @@ export default function Page() {
   const columnTops = useMemo(() => {
     if (heights && sums) {
       return {
-        dev: calculateApex(sums.devSum),
-        test: calculateApex(sums.testSum),
-        prod: calculateApex(sums.prodSum),
+        dev: calculateApex(sums.devSum, heights.maxValue),
+        test: calculateApex(sums.testSum, heights.maxValue),
+        prod: calculateApex(sums.prodSum, heights.maxValue),
       }
     }
     return { dev: 0, test: 0, prod: 0 }
@@ -70,7 +70,7 @@ export default function Page() {
         </div>
         {data ? (
           <div className="sm:ml-7 relative">
-            <div className="flex mt-16 justify-start items-start w-full -translate-y-3 z-30 relative">
+            <div className="flex mt-16 justify-start items-start w-full sm:-translate-y-3 -translate-y-2 z-30 relative">
               <Label result={-((sums?.devSum ?? 0) - (sums?.testSum ?? 0))} left="85" />
               <Label result={-((sums?.testSum ?? 0) - (sums?.prodSum ?? 0))} left="230" />
             </div>
